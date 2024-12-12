@@ -88,7 +88,7 @@ export default function JoinUs() {
         <p className="mt-[20px] text-[14px] w-[90%] md:mt-[20px] md:text-[14px] md:w-[90%]">
           Already a Member?{" "}
           <a href="">
-            <b className="underline">Sign In.</b>
+            <b className="underline text-black font-[500]">Sign In.</b>
           </a>
         </p>
       </div>
