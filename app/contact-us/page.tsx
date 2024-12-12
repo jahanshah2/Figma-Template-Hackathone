@@ -163,7 +163,7 @@ export default function ContactUs() {
               </div>
               <div className="flex flex-col items-center mt-[30px] md:flex md:flex-col md:items-center md:mt-[30px]">
                 <Image
-                  src={"/Image-Message.svg"}
+                  src={"/Image-Email.svg"}
                   alt="icon"
                   width={1000}
                   height={1000}
