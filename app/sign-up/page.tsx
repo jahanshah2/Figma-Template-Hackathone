@@ -48,8 +48,8 @@ export default function SignUp() {
         <div className="flex flex-col items-center">
           <p className="mt-[30px] text-[14px] w-[70%] md:mt-[30px] md:text-[14px] md:w-[90%]">
             By logging in, you agree to Nike's{" "}
-            <b className="cursor-pointer md:underline">Privacy Policy</b> and{" "}
-            <b className="cursor-pointer md:underline">Terms of Use.</b>
+            <b className="cursor-pointer underline">Privacy Policy</b> and{" "}
+            <b className="cursor-pointer underline">Terms of Use.</b>
           </p>
           <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[3px] w-[90%] md:border-[#E5E5E5] border-[1px] md:mt-[40px] md:h-[40px] md:rounded-[3px] md:w-[100%] bg-black text-white ">
             SIGN IN
@@ -57,7 +57,7 @@ export default function SignUp() {
           <p className="mt-[40px] mb-[60px] text-center text-[14px] w-[100%] md:mt-[40px] md:mb-[60px] md:text-[14px] md:w-[100%]">
             Not a Member?{" "}
             <a href="">
-              <b className="underline">Sign In.</b>
+              <b className="underline text-black font-[500]">Join Us.</b>
             </a>
           </p>
         </div>
