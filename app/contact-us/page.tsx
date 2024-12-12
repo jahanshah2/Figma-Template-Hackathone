@@ -5,7 +5,7 @@ export default function ContactUs() {
   return (
     <div className="md:max-w-[1280px] md:mx-auto">
       <div className="mx-3 md:mx-16">
-        <div className="flex flex-col justify-center items-center md:flex md:flex-col md:justify-center md:items-center">
+        <div className=" flex flex-col justify-center items-center md:flex md:flex-col md:justify-center md:items-center">
           <h1 className="text-center text-[32px] font-[500] md:text-center md:text-[32px] md:font-[500]">
             GET HELP
           </h1>
@@ -13,7 +13,7 @@ export default function ContactUs() {
             <input
               type="email"
               placeholder="What can we help you with?"
-              className="border-[#E5E5E5]  mt-[20px] h-[40px] rounded-[8px] pl-[30px] w-[450px] md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[8px] md:pl-[30px] md:w-[450px] focus-visible:outline-none"
+              className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[8px] pl-[30px] w-[400px] md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[8px] md:pl-[30px] md:w-[450px] focus-visible:outline-none"
             />
             <Image
               src={"/Frame-Search-Icone.svg"}

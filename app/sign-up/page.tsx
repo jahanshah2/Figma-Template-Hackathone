@@ -3,17 +3,17 @@ import React from "react";
 
 export default function SignUp() {
   return (
-    <div className="md:text-center md:text-[#8D8D8D] md:max-w-[1280px] mx-auto">
+    <div className="text-center text-[#8D8D8D] md:text-center md:text-[#8D8D8D] md:max-w-[1280px] mx-auto">
       <div className="md:px-[450px]">
-        <div className="md:px-[100px] md:flex md:flex-col md:items-center">
+        <div className="px-[100px] flex flex-col items-center md:px-[100px] md:flex md:flex-col md:items-center">
           <Image
             src={"/Vector2.svg"}
             alt="logo"
             height={10000}
             width={1000}
-            className="md:h-[30px] md:w-[65px] md:mt-[40px]"
+            className="h-[30px] w-[65px] mt-[40px] md:h-[30px] md:w-[65px] md:mt-[40px]"
           />
-          <h1 className="md:mt-[30px] md:text-[#111111] md:font-[700] md:text-[18px]">
+          <h1 className="mt-[30px] text-[#111111] font-[700] text-[18px] md:mt-[30px] md:text-[#111111] md:font-[700] md:text-[18px]">
             YOUR ACCOUNT FOR EVERYTHING NIKE
           </h1>
         </div>
@@ -21,42 +21,46 @@ export default function SignUp() {
           <input
             type="email"
             placeholder="Email address"
-            className="md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
+            className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[3px] pl-[30px] w-[80%]  md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
           />
           <input
             type="password"
             placeholder="Password"
-            className="md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
+            className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[3px] pl-[30px] w-[80%]  md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
           />
         </div>
-        <div className="md:mt-[30px] md:flex md:justify-between">
-          <div className="md:flex md:justify-between md:items-center gap-2">
+        <div className="mx-[50px] mt-[30px] flex justify-between md:mt-[30px] md:mx-[0px] md:flex md:justify-between">
+          <div className="flex justify-between items-center  md:flex md:justify-between md:items-center gap-2">
             <input
               type="checkbox"
-              className="md:border-[#E5E5E5] border-[1px] md:rounded-[3px] md:h-[18px] md:w-[18px]"
+              className="border-[#E5E5E5]  rounded-[3px] h-[18px] w-[18px] md:border-[#E5E5E5] border-[1px] md:rounded-[3px] md:h-[18px] md:w-[18px]"
             />
-            <p className="md:w-[90%] md:text-[14px]">Keep me signed in</p>
+            <p className="w-[90%] text-[14px] md:w-[90%] md:text-[14px]">
+              Keep me signed in
+            </p>
           </div>
           <div>
-            <p className="text-[#BCBCBC] md:text-[13px] cursor-pointer">
+            <p className="text-[#BCBCBC] text-[13px] md:text-[13px] cursor-pointer">
               Forgotten your password?
             </p>
           </div>
         </div>
-        <p className="md:mt-[30px] md:text-[14px] md:w-[90%]">
-          By logging in, you agree to Nike's{" "}
-          <b className="cursor-pointer md:underline">Privacy Policy</b> and{" "}
-          <b className="cursor-pointer md:underline">Terms of Use.</b>
-        </p>
-        <button className="md:border-[#E5E5E5] border-[1px] md:mt-[40px] md:h-[40px] md:rounded-[3px] md:w-[100%] bg-black text-white ">
-          SIGN IN
-        </button>
-        <p className="md:mt-[40px] md:mb-[60px] md:text-[14px] md:w-[90%]">
-          Not a Member?{" "}
-          <a href="">
-            <b className="underline">Sign In.</b>
-          </a>
-        </p>
+        <div className="flex flex-col items-center">
+          <p className="mt-[30px] text-[14px] w-[70%] md:mt-[30px] md:text-[14px] md:w-[90%]">
+            By logging in, you agree to Nike's{" "}
+            <b className="cursor-pointer md:underline">Privacy Policy</b> and{" "}
+            <b className="cursor-pointer md:underline">Terms of Use.</b>
+          </p>
+          <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[3px] w-[90%] md:border-[#E5E5E5] border-[1px] md:mt-[40px] md:h-[40px] md:rounded-[3px] md:w-[100%] bg-black text-white ">
+            SIGN IN
+          </button>
+          <p className="mt-[40px] mb-[60px] text-center text-[14px] w-[100%] md:mt-[40px] md:mb-[60px] md:text-[14px] md:w-[100%]">
+            Not a Member?{" "}
+            <a href="">
+              <b className="underline">Sign In.</b>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
