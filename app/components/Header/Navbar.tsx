@@ -107,13 +107,16 @@ export default function Navbar() {
               width={1000}
               className="h-[25.5px] w-[25.5px]  md:h-[25.5px] md:w-[25.5px]"
             />
-            <Image
-              src={"/VectorCart.svg"}
-              alt="logo"
-              height={10000}
-              width={1000}
-              className="h-[25px] w-[25px]  md:h-[24px] md:w-[24px]"
-            />
+            <Link href={"/cart"}>
+              <Image
+                src={"/VectorCart.svg"}
+                alt="logo"
+                height={10000}
+                width={1000}
+                className="h-[25px] w-[25px]  md:h-[24px] md:w-[24px]"
+              />
+            </Link>
+
             <div className="sm:hidden flex items-center justify-center">
               <Sheet>
                 <SheetTrigger>

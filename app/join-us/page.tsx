@@ -45,7 +45,7 @@ export default function JoinUs() {
           <input
             type="date"
             placeholder="Date of Birth"
-            className="border-[#E5E5E5]  mt-[20px] h-[40px] rounded-[3px] pl-[30px] w-[100%]  md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
+            className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[3px] pl-[30px] w-[100%] md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:pl-[30px] md:w-[100%] focus-visible:outline-none"
           />
         </div>
         <p className="mt-[20px] text-[15px] md:mt-[20px] md:text-[12px]">

@@ -240,7 +240,7 @@ export default function AllProducts() {
               </div>
             </div>
           </div>
-          <div className="mt-5 md:w-[78%]">
+          <div className="flex flex-col gap-y-8 md:flex md:flex-col md:gap-y-3 mt-5 md:w-[78%]">
             <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
               <AllProductCard
                 image={"/All-Product-Images/AllProductImage1.svg"}
