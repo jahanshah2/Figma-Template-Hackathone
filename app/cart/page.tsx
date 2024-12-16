@@ -74,7 +74,7 @@ export default function Cart() {
                 </div>
               </div>
             </div>
-            <div className="py-[30px]  md:flex md:gap-x-5 md:py-[30px] border-b-[2px]">
+            <div className="py-[30px] mb-8  md:flex md:gap-x-5 md:py-[30px] border-b-[2px]">
               <div>
                 <Image
                   src={"/Frame-Cart-Product-1.svg"}
