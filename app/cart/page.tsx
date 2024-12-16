@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Cart() {
@@ -155,9 +156,11 @@ export default function Cart() {
                   ₹ 20 890.00
                 </p>
               </div>
-              <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[20px] w-[100%] md:border-[#E5E5E5] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-black text-white">
-                Member Checkout
-              </button>
+              <Link href={"/checkout"}>
+                <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[20px] w-[100%] md:border-[#E5E5E5] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-black text-white">
+                  Member Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>
