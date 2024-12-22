@@ -181,8 +181,8 @@ export default function CheckOut() {
                     eShopWorld is a trusted Nike partner.
                   </p>
                 </div>
-                <button className="mt-[40px] h-[45px] rounded-[20px] w-[100%] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-[#F5F5F5] text-[#757575]">
-                  Continue
+                <button className="mt-[40px] h-[45px] rounded-[20px] w-[100%] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-[#F5F5F5] text-[#757575] md:relative md:overflow-hidden md:transition-all md:before:absolute md:before:left-0 md:before:right-0 md:before:top-0 md:before:h-0 md:before:w-full md:before:bg-black md:before:duration-500 md:after:absolute md:after:bottom-0 md:after:left-0 md:after:right-0 md:after:h-0 md:after:w-full md:after:bg-black md:after:duration-500 md:hover:text-white md:hover:before:h-2/4 md:hover:after:h-2/4 md:font-[500] md:text-[15px]">
+                  <span className="relative z-10">Continue</span>
                 </button>
               </div>
               <div>
@@ -227,14 +227,14 @@ export default function CheckOut() {
               <h3 className="text-[16px] font-[700] md:text-[15px] md:font-[700]">
                 Arrives Mon, 27 Mar - Wed, 12 Apr
               </h3>
-              <div className="mt-[10px] md:mt-[10px] md:flex md:gap-2">
+              <div className="mt-[10px] md:mt-[10px] md:flex md:gap-2 md:cursor-pointer">
                 <div>
                   <Image
                     src={"/Frame-Checkout-product.svg"}
                     alt="product image"
                     height={200}
                     width={200}
-                    className="h-[300px] w-[300px] md:h-[200px] md:w-[200px]"
+                    className="h-[300px] w-[300px] md:h-[200px] md:w-[200px] md:transition md:duration-300 md:ease-in-out md:hover:scale-105 md:hover:shadow-lg md:dark:hover:shadow-black/30"
                   />
                 </div>
                 <div className="mt-[20px] text-[15px] w-[300px] font-[400] md:w-[25%] md:mt-0 md:text-[13px] md:font-[400]">
@@ -255,14 +255,14 @@ export default function CheckOut() {
                   </p>
                 </div>
               </div>
-              <div className="mt-[20px] md:mt-[10px] md:flex md:gap-2">
+              <div className="mt-[20px] md:mt-[10px] md:flex md:gap-2 md:cursor-pointer">
                 <div>
                   <Image
                     src={"/Frame-Chectout-product-2.svg"}
                     alt="product image"
                     height={200}
                     width={200}
-                    className="h-[300px] w-[300px] md:h-[200px] md:w-[200px]"
+                    className="h-[300px] w-[300px] md:h-[200px] md:w-[200px] md:transition md:duration-300 md:ease-in-out md:hover:scale-105 md:hover:shadow-lg md:dark:hover:shadow-black/30"
                   />
                 </div>
                 <div className="mt-[20px] text-[15px] font-[400] md:w-[25%] md:mt-0 md:text-[13px] md:font-[400]">

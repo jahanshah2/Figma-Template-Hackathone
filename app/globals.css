@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -53,7 +53,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
@@ -65,3 +65,29 @@
   }
 }
 
+.nav{
+  position: relative;
+  cursor: pointer;
+  &::after{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 0%;
+    border-bottom: 2px solid black;
+    transition: all 0.3s linear;
+  }
+
+  &:hover::after{
+    width: 100%;
+  }
+}
+
+.footer-icon{
+  transition: all 1s ease-out;
+}
+.footer-icon:hover{
+  transition: all 0.6s ease-in;
+  cursor: pointer;
+  transform: rotate(360deg);
+}

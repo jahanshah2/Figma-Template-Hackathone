@@ -31,21 +31,31 @@ export default function Navbar() {
           <div>
             <ul className="md:flex md:space-x-3">
               <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                Find a Store
+                <p className="md:cursor-pointer md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
+                  Find a Store
+                </p>
               </li>
               <Link href={"/contact-us"}>
                 <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                  Help
+                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
+                    Help
+                  </p>
                 </li>
               </Link>
               <Link href="/join-us">
                 <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                  Join Us
+                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
+                    Join Us
+                  </p>
                 </li>
               </Link>
-              <li className="flex items-center md:text-[13px] md:font-[500]">
-                <Link href="/sign-up">Sign In</Link>
-              </li>
+              <Link href="/sign-up">
+                <li className="flex items-center md:text-[13px] md:font-[500]">
+                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
+                    Sign In
+                  </p>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -64,23 +74,23 @@ export default function Navbar() {
           <div className="hidden sm:block">
             <ul className="md:flex md:space-x-7">
               <Link href={"/all-products"}>
-                <li className="md:flex md:items-center md:text-[15px] md:font-[500]">
+                <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
                   New & Featured
                 </li>
               </Link>
-              <li className="md:flex md:items-center md:text-[15px] md:font-[500]">
+              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
                 Man
               </li>
-              <li className="md:flex md:items-center md:text-[15px] md:font-[500]">
+              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
                 Woman
               </li>
-              <li className="md:flex md:items-center md:text-[15px] md:font-[500]">
+              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
                 Kids
               </li>
-              <li className="md:flex md:items-center md:text-[15px] md:font-[500]">
+              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
                 Sale
               </li>
-              <li className="flex items-center md:text-[13px] md:font-[500]">
+              <li className="nav flex items-center md:text-[13px] md:font-[500]">
                 SNKRS
               </li>
             </ul>

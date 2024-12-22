@@ -11,7 +11,7 @@ export default function GearImageCard(prop: any) {
             alt="shoes image"
             height={1440}
             width={1440}
-            className="h-[200px] w-[200px] md:h-[200px] md:w-[200px]"
+            className="h-[200px] w-[200px] md:h-[200px] md:w-[200px] md:transition md:duration-300 md:ease-in-out md:hover:scale-105"
           />
         </div>
         <div className="flex gap-2 flex-col w-[200px] text-[15px] font-[500] mt-[20px]  md:flex md:flex-row md:gap-0 md:justify-between md:w-[200px] md:text-[15px] md:font-[500] md:mt-[20px]">

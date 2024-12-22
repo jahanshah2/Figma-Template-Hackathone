@@ -9,10 +9,10 @@ export default function ShoesTypes() {
             Icons
           </h3>
           <div className="text-[16px] text-[#757575] md:text-[15px] md:text-[#757575]">
-            <p className="mt-2 md:mt-5">Air Force 1</p>
-            <p className="mt-2 md:mt-2">Huarache</p>
-            <p className="mt-2 md:mt-2">Air Max 90</p>
-            <p className="mt-2 md:mt-2">Air Max 95</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-5">Air Force 1</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Huarache</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Air Max 90</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Air Max 95</p>
           </div>
         </div>
         <div>
@@ -20,10 +20,10 @@ export default function ShoesTypes() {
             Shoes
           </h3>
           <div className="text-[15px] text-[#757575] md:text-[15px] md:text-[#757575]">
-            <p className="mt-2 md:mt-5">All Shoes</p>
-            <p className="mt-2 md:mt-2">Custom Shoes</p>
-            <p className="mt-2 md:mt-2">Jordan Shoes</p>
-            <p className="mt-2 md:mt-2">Running Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-5">All Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Custom Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Jordan Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Running Shoes</p>
           </div>
         </div>
         <div>
@@ -31,10 +31,10 @@ export default function ShoesTypes() {
             Clothing
           </h3>
           <div className="text-[15px] text-[#757575] md:text-[15px] md:text-[#757575]">
-            <p className="mt-2 md:mt-5">All Clothing</p>
-            <p className="mt-2 md:mt-2">Modest Wear</p>
-            <p className="mt-2 md:mt-2">Hoodies & Pullovers</p>
-            <p className="mt-2 md:mt-2">Shirts & Tops</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-5">All Clothing</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Modest Wear</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Hoodies & Pullovers</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Shirts & Tops</p>
           </div>
         </div>
         <div>
@@ -42,10 +42,10 @@ export default function ShoesTypes() {
             Kids'
           </h3>
           <div className="text-[15px] text-[#757575] md:text-[15px] md:text-[#757575]">
-            <p className="mt-2 md:mt-5">Infant & Toddler Shoes</p>
-            <p className="mt-2 md:mt-2">Kids' Shoes</p>
-            <p className="mt-2 md:mt-2">Kids' Jordan Shoes</p>
-            <p className="mt-2 md:mt-2">Kids' Basketball Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-5">Infant & Toddler Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Kids' Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Kids' Jordan Shoes</p>
+            <p className="md:cursor-pointer md:hover:scale-95 md:transition-all md:hover:text-black mt-2 md:mt-2">Kids' Basketball Shoes</p>
           </div>
         </div>
       </div>

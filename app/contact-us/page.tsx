@@ -47,20 +47,26 @@ export default function ContactUs() {
               </p>
             </div>
             <p className="font-[400] text-[16px] mt-[25px] md:font-[400] md:text-[16px] md:mt-[25px]">
-              <span className="underline font-[500] md:font-[500]">Nike Members</span> can
-              store multiple debit or credit cards in their profile for faster
-              checkout. If you're not already a Member,{" "}
-              <span className="underline font-[500] md:font-[500]">join us today.</span>
+              <span className="underline font-[500] md:font-[500] md:cursor-pointer md:hover:text-blue-800 md:underline">
+                Nike Members
+              </span>{" "}
+              can store multiple debit or credit cards in their profile for
+              faster checkout. If you're not already a Member,{" "}
+              <span className="underline font-[500] md:font-[500] md:cursor-pointer md:hover:text-blue-800 md:underline">
+                join us today.
+              </span>
             </p>
             <div className="mt-[25px] flex text-white md:mt-[25px] md:flex gap-4 md:text-white">
-              <button className="bg-black py-[7.5px] px-[22.5px] rounded-[25px] font-[500] text-[15px] md:bg-black md:py-[7.5px] md:px-[22.5px] md:rounded-[25px] md:font-[500] md:text-[15px]">
-                JOIN US
+              <button className="bg-black py-[7.5px] px-[22.5px] rounded-[25px] font-[500] text-[15px] md:bg-black md:py-[7.5px] md:px-[22.5px] md:rounded-[25px] md:font-[500] md:text-[15px] md:relative md:flex md:items-center md:justify-center md:overflow-hidden text-white md:shadow-2xl md:transition-all md:before:absolute md:before:h-0 md:before:w-0 md:before:rounded-full md:before:bg-gray-700 md:before:duration-500 md:before:ease-out md:hover:shadow-gray-800 md:hover:before:h-56 md:hover:before:w-56">
+                <span className="relative z-10">JOIN US</span>
               </button>
-              <button className="bg-black py-[7.5px] px-[22.5px] rounded-[25px] font-[500] text-[15px] md:bg-black md:py-[7.5px] md:px-[22.5px] md:rounded-[25px] md:font-[500] md:text-[15px]">
-                SHOP NIKE
+              <button className="bg-black py-[7.5px] px-[22.5px] rounded-[25px] font-[500] text-[15px] md:bg-black md:py-[7.5px] md:px-[22.5px] md:rounded-[25px] md:font-[500] md:text-[15px] md:relative md:flex md:items-center md:justify-center md:overflow-hidden text-white md:shadow-2xl md:transition-all md:before:absolute md:before:h-0 md:before:w-0 md:before:rounded-full md:before:bg-gray-700 md:before:duration-500 md:before:ease-out md:hover:shadow-gray-800 md:hover:before:h-56 md:hover:before:w-56">
+                <span className="relative z-10">SHOP NIKE</span>
               </button>
             </div>
-            <h3 className="font-[500] text-[20px] mt-[25px] md:font-[500] md:text-[20px] md:mt-[25px]">FAQs</h3>
+            <h3 className="font-[500] text-[20px] mt-[25px] md:font-[500] md:text-[20px] md:mt-[25px]">
+              FAQs
+            </h3>
             <h4 className="font-[600] text-[16px] mt-[25px] md:font-[600] md:text-[16px] md:mt-[25px]">
               Does my card need international purchases enabled?
             </h4>
@@ -118,9 +124,11 @@ export default function ContactUs() {
             <p className="text-[16px] font-[500] text-[#757575] mt-[5px] md:text-[16px] md:font-[500] md:text-[#757575] md:mt-[5px]">
               RELATED
             </p>
-            <div className="ml-[20px] text-[15px] font-[500] md:ml-[20px] md:text-[15px] md:font-[500] underline">
-              <p className="mt-[25px] md:mt-[25px]">WHAT ARE NIKE'S DELIVERY OPTIONS?</p>
-              <p className="mt-[25px] md:mt-[25px]">
+            <div className="ml-[20px] text-[15px] font-[500] md:ml-[20px] md:text-[15px] md:font-[500] underline md:flex md:flex-col">
+              <p className="mt-[25px] md:mt-[25px] md:cursor-pointer md:hover:text-blue-800 md:underline md:inline-block">
+                WHAT ARE NIKE'S DELIVERY OPTIONS?
+              </p>
+              <p className="mt-[25px] md:mt-[25px] md:cursor-pointer md:hover:text-blue-800 md:underline md:inline-block">
                 HOW DO I GET FREE DELIVERY ON NIKE ORDERS?
               </p>
             </div>
@@ -128,7 +136,9 @@ export default function ContactUs() {
           <div className="md:flex md:justify-end md:w-[25%]">
             <div className="text-center md:w-[90%] md:h-[100px] md:text-center">
               <div className="flex flex-col items-center mt-8 md:flex md:mt-0 md:flex-col md:items-center">
-                <h4 className="font-[500] text-[28px] md:font-[500] md:text-[28px]">CONTACT US</h4>
+                <h4 className="font-[500] text-[28px] md:font-[500] md:text-[28px]">
+                  CONTACT US
+                </h4>
                 <Image
                   src={"/Image-Phone.svg"}
                   alt="icon"

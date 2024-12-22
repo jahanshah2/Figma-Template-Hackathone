@@ -82,8 +82,8 @@ export default function JoinUs() {
           <b className="underline">Privacy Policy</b> and{" "}
           <b className="underline">Terms of Use.</b>
         </p>
-        <button className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[3px] w-[90%] md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:w-[100%] bg-black text-white ">
-          JOIN US
+        <button className="border-[#E5E5E5] mt-[20px] h-[40px] rounded-[3px] w-[90%] md:border-[#E5E5E5] border-[1px] md:mt-[20px] md:h-[40px] md:rounded-[3px] md:w-[100%] bg-black text-white md:before:ease md:relative  md:overflow-hidden md:transition-all md:before:absolute md:before:right-0 md:before:top-0 md:before:h-12 md:before:w-6 md:before:translate-x-12 md:before:rotate-6 md:before:bg-white md:before:opacity-30 md:before:duration-1000 md:hover:before:-translate-x-96">
+          <span>JOIN US</span>
         </button>
         <p className="mt-[20px] text-[14px] w-[90%] md:mt-[20px] md:text-[14px] md:w-[90%]">
           Already a Member?{" "}

@@ -157,7 +157,7 @@ export default function Cart() {
                 </p>
               </div>
               <Link href={"/checkout"}>
-                <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[20px] w-[100%] md:border-[#E5E5E5] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-black text-white">
+                <button className="border-[#E5E5E5] mt-[40px] h-[40px] rounded-[20px] w-[100%] md:border-[#E5E5E5] md:mt-[40px] md:h-[40px] md:rounded-[20px] md:w-[100%] bg-black text-white md:before:ease md:relative  md:overflow-hidden md:transition-all md:before:absolute md:before:right-0 md:before:top-0 md:before:h-12 md:before:w-6 md:before:translate-x-12 md:before:rotate-6 md:before:bg-white md:before:opacity-30 md:before:duration-1000 md:hover:before:-translate-x-96 ">
                   Member Checkout
                 </button>
               </Link>
