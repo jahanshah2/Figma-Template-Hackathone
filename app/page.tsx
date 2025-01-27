@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Hero from "./components/Hero-Section/Hero";
 import BestAirMax from "./components/Best-of-Air-Max/Best-of-Air-Max";
 import Featured from "./components/Featured/Featured";
@@ -18,7 +18,9 @@ export default function Home() {
 
       {/* BEST OF AIR MAX SECTION */}
       <section>
-        <BestAirMax />
+        <Suspense>
+          <BestAirMax />
+        </Suspense>
       </section>
       {/* BEST OF AIR MAX SECTION */}
 
@@ -30,7 +32,9 @@ export default function Home() {
 
       {/* GEAR-UP SECTION */}
       <section>
-        <GearUp />
+        <Suspense>
+          <GearUp />
+        </Suspense>
       </section>
       {/* GEAR-UP SECTION */}
 

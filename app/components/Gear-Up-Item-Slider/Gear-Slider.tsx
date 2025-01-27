@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,8 +7,45 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import GearImageCard from "../All-Cards/Gear-Image-Card";
+import { client } from "@/sanity/lib/client";
+import Link from "next/link";
+import { gearUp_1_Query, gearUp_2_Query } from "@/lib/query";
+import { urlFor } from "@/sanity/lib/image";
+import { Iproducts } from "@/lib/types";
+import GearUpSkeleton from "../Loading-Skeletons/Gear-Up/Gear-Up-Skeleton";
 
 export default function GearSlider() {
+  const [loadiing, setLoadiing] = useState(true);
+  const [productsSlider1, setProductsSlider1] = useState<Iproducts[]>();
+  const [productsSlider2, setProductsSlider2] = useState<Iproducts[]>();
+
+  useEffect(() => {
+    const getProductsDataSlider1 = async () => {
+      try {
+        setLoadiing(true);
+        const products1 = await client.fetch(gearUp_1_Query);
+        setProductsSlider1(products1);
+      } catch (error) {
+        console.error("Error To Fetching Gear Up Slider 1", error);
+      } finally {
+        setLoadiing(false);
+      }
+    };
+    getProductsDataSlider1();
+  }, []);
+
+  useEffect(() => {
+    const getProductsDataSlider2 = async () => {
+      try {
+        const products2 = await client.fetch(gearUp_2_Query);
+        setProductsSlider2(products2);
+      } catch (error) {
+        console.error("Error To Fetching Gear Up Slider 2", error);
+      }
+    };
+    getProductsDataSlider2();
+  }, []);
+
   return (
     <>
       <div className="md:flex md:justify-between">
@@ -22,38 +59,24 @@ export default function GearSlider() {
             modules={[]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageGear1.svg"}
-                tittle={"Nike Dri-FIT ADV TechKnit Ultra"}
-                price={"3 895"}
-                category={"Nike Dri-FIT ADV TechKnit Ultra"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageGear2.svg"}
-                tittle={"Nike Dri-FIT Challenger"}
-                price={"13 995"}
-                category={"Men's 18cm (approx.) 2-in-1 Versatile Shorts"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max 97 SE"}
-                price={"13 995"}
-                category={"Women's Shoes"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max Pulse"}
-                price={"16 995"}
-                category={"Women's Shoes"}
-              />
-            </SwiperSlide>
+            {loadiing ? (
+              <GearUpSkeleton />
+            ) : (
+              productsSlider1?.map((product1: Iproducts, index: number) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <Link href={`products/${product1._id}`}>
+                      <GearImageCard
+                        image={urlFor(product1.image).url()}
+                        tittle={product1.productName}
+                        price={product1.price}
+                        category={product1.category}
+                      />
+                    </Link>
+                  </SwiperSlide>
+                );
+              })
+            )}
           </Swiper>
         </div>
         <div className="md:border md:p-[40px] md:h-[390px] md:w-[500px] md:relative top-4 h-auto">
@@ -66,30 +89,24 @@ export default function GearSlider() {
             modules={[]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageGear3.svg"}
-                tittle={"Nike Dri-FIT ADV Run Division"}
-                price={"13 995"}
-                category={"Women's Long-Sleeve Running Top"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageGear4.svg"}
-                tittle={"Nike Fast"}
-                price={"13 995"}
-                category={"Women's Mid-Rise 7/8 Running Leggings with Pockets"}
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <GearImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max 97 SE"}
-                price={"13 995"}
-                category={"Women's Shoes"}
-              />
-            </SwiperSlide>
+            {loadiing ? (
+              <GearUpSkeleton />
+            ) : (
+              productsSlider2?.map((product2: Iproducts, index: number) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <Link href={`products/${product2._id}`}>
+                      <GearImageCard
+                        image={urlFor(product2.image).url()}
+                        tittle={product2.productName}
+                        price={product2.price}
+                        category={product2.category}
+                      />
+                    </Link>
+                  </SwiperSlide>
+                );
+              })
+            )}
           </Swiper>
         </div>
       </div>

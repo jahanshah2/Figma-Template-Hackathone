@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 import {
@@ -11,8 +12,61 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathName = usePathname();
+
+  const navLinkListBottom = [
+    {
+      title: "New & Featured",
+      link: "/all-products",
+    },
+    {
+      title: "Man",
+      link: "/",
+    },
+    {
+      title: "Woman",
+      link: "/",
+    },
+    {
+      title: "Kids",
+      link: "/",
+    },
+    {
+      title: "Sale",
+      link: "/",
+    },
+    {
+      title: "SNKRS",
+      link: "/",
+    },
+    {
+      title: "Blog",
+      link: "/blog",
+    },
+  ];
+
+  const navLinkListTop = [
+    {
+      title: "Find a Store",
+      link: "/",
+    },
+    {
+      title: "Help",
+      link: "/contact-us",
+    },
+    {
+      title: "Join Us",
+      link: "/join-us",
+    },
+    {
+      title: "Sign In",
+      link: "/sign-up",
+    },
+  ];
+
   return (
     <>
       <div className="md:max-w-[1280px] md:mx-auto">
@@ -30,32 +84,21 @@ export default function Navbar() {
           </div>
           <div>
             <ul className="md:flex md:space-x-3">
-              <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                <p className="md:cursor-pointer md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
-                  Find a Store
-                </p>
-              </li>
-              <Link href={"/contact-us"}>
-                <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
-                    Help
-                  </p>
-                </li>
-              </Link>
-              <Link href="/join-us">
-                <li className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:border-black">
-                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
-                    Join Us
-                  </p>
-                </li>
-              </Link>
-              <Link href="/sign-up">
-                <li className="flex items-center md:text-[13px] md:font-[500]">
-                  <p className="md:transition md:duration-300 md:ease-in-out md:hover:scale-110">
-                    Sign In
-                  </p>
-                </li>
-              </Link>
+              {navLinkListTop.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.link}
+                  className="md:flex md:items-center md:text-[13px] md:font-[500] md:pr-[8px] md:border-r-[1.5px] md:last:border-r-0 md:border-black"
+                >
+                  <li>
+                    <p
+                      className={`md:transition md:duration-300 md:ease-in-out md:hover:scale-110 ${pathName === item?.link && "scale-110"}`}
+                    >
+                      {item.title}
+                    </p>
+                  </li>
+                </Link>
+              ))}
             </ul>
           </div>
         </div>
@@ -73,26 +116,15 @@ export default function Navbar() {
           </div>
           <div className="hidden sm:block">
             <ul className="md:flex md:space-x-7">
-              <Link href={"/all-products"}>
-                <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
-                  New & Featured
-                </li>
-              </Link>
-              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
-                Man
-              </li>
-              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
-                Woman
-              </li>
-              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
-                Kids
-              </li>
-              <li className="nav md:flex md:items-center md:text-[15px] md:font-[500]">
-                Sale
-              </li>
-              <li className="nav flex items-center md:text-[13px] md:font-[500]">
-                SNKRS
-              </li>
+              {navLinkListBottom.map((item, index) => (
+                <Link key={index} href={item.link}>
+                  <li
+                    className={`nav md:flex md:items-center md:text-[15px] md:font-[500]`}
+                  >
+                    {item.title}
+                  </li>
+                </Link>
+              ))}
             </ul>
           </div>
           <div className="flex items-center md:flex md:items-center gap-6">
@@ -126,7 +158,6 @@ export default function Navbar() {
                 className="h-[25px] w-[25px]  md:h-[24px] md:w-[24px]"
               />
             </Link>
-
             <div className="sm:hidden flex items-center justify-center">
               <Sheet>
                 <SheetTrigger>
@@ -160,28 +191,20 @@ export default function Navbar() {
                       </div>
                       <div className="mt-[20px] pb-[20px] border-b-[2px] ">
                         <ul className="text-start text-[17px] text-black flex flex-col space-y-7">
-                          <Link href={"/all-products"}>
-                            <li>New & Featured</li>
-                          </Link>
-                          <li>Man</li>
-                          <li>Woman</li>
-                          <li>Kids</li>
-                          <li>Sale</li>
-                          <li>SNKRS</li>
+                          {navLinkListBottom.map((item, index) => (
+                            <Link key={index} href={item.link}>
+                              <li>{item.title}</li>
+                            </Link>
+                          ))}
                         </ul>
                       </div>
                       <div className="mt-[20px]">
                         <ul className="text-start text-[17px] text-black flex flex-col space-y-7">
-                          <li>Find a Store</li>
-                          <Link href={"/contact-us"}>
-                            <li>Help</li>
-                          </Link>
-                          <Link href="/join-us">
-                            <li>Join Us</li>
-                          </Link>
-                          <li>
-                            <Link href="/sign-up">Sign In</Link>
-                          </li>
+                          {navLinkListTop.map((item, index) => (
+                            <Link key={index} href={item.link}>
+                              <li>{item.title}</li>
+                            </Link>
+                          ))}
                         </ul>
                       </div>
                     </SheetDescription>

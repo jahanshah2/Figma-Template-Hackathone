@@ -1,5 +1,5 @@
+"use client";
 import Image from "next/image";
-import React from "react";
 
 import {
   DropdownMenu,
@@ -28,7 +28,33 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import AllProductCard from "../components/All-Cards/All-Product-Card";
 
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
+import { allProductsQuery } from "@/lib/query";
+import { Iproducts } from "@/lib/types";
+import { useEffect, useState } from "react";
+import AllProductsSkeleton from "../components/Loading-Skeletons/All-Products/All-Products-Skeleton";
+ 
 export default function AllProducts() {
+  const [loading, setLoading] = useState(true);
+  const [productData, setProducts] = useState<Iproducts[]>([]);
+  
+  useEffect(() => {
+    const getProductData = async () => {
+      try {
+        setLoading(true);
+        const response = await client.fetch(allProductsQuery);
+        setProducts(response);
+      } catch (error) {
+        console.error("Error To Fetching All Products : ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getProductData();
+  }, []);
+
   return (
     <div className="md:max-w-[1280px] md:mx-auto">
       <div className="px-5 md:px-14">
@@ -291,265 +317,23 @@ export default function AllProducts() {
             </div>
           </div>
           <div className="flex flex-col gap-y-8 md:flex md:flex-col md:gap-y-3 mt-5 md:w-[78%]">
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage1.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage2.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage3.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage4.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage5.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage6.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage7.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage8.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage9.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage10.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage11.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage12.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage13.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage14.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage15.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage16.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage17.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage18.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage19.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage20.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage21.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage22.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage23.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage24.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage25.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage26.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage27.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-            </div>
-            <div className="flex flex-col gap-8 md:flex md:flex-row md:gap-0 md:justify-between">
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage28.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage29.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
-              <AllProductCard
-                image={"/All-Product-Images/AllProductImage30.svg"}
-                just={"Just In"}
-                tittle={"Nike Air Force 1 Mid '07"}
-                category={"Men's Shoes"}
-                availableColors={"1 Colour"}
-                price={"10 795.00"}
-              />
+            <div className="grid grid-cols-1 gap-8 md:grid md:grid-cols-3 md:gap-y-8 md:justify-between">
+              {loading ? (
+                <AllProductsSkeleton />
+              ) : (
+                productData.map((product: Iproducts, index: number) => (
+                  <Link key={index} href={`products/${product._id}`}>
+                    <AllProductCard
+                      image={urlFor(product.image).url()}
+                      just={product.status}
+                      tittle={product.productName}
+                      category={product.category}
+                      availableColors={`${product.colors.length} Color`}
+                      price={product.price}
+                    />
+                  </Link>
+                ))
+              )}
             </div>
             <div className="border-t-[1.5px] mt-[100px] mb-[50px] md:border-t-[1px] md:mt-[100px] md:mb-[50px]">
               <h2 className="text-[19px] font-[500] mt-[50px] md:text-[19px] md:font-[500] md:mt-[50px]">

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 import {
   Carousel,
@@ -8,52 +9,55 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ImageCard from "../All-Cards/Image-Card";
+import { client } from "@/sanity/lib/client";
+import Link from "next/link";
+import { bestAirMaxQuery } from "@/lib/query";
+import { urlFor } from "@/sanity/lib/image";
+import { Iproducts } from "@/lib/types";
+import BestAirMaxMobileSkeleton from "../Loading-Skeletons/Best-Air-Max-Mobile/Best-Air-Max-Mobile-Skaleton";
 
 export default function ItemSliderMobile() {
+  const [loading, setLoading] = useState(true);
+  const [Products, setProducts] = useState<Iproducts[]>([]); // Initialize as empty array
+
+  useEffect(() => {
+    const getProductsData = async () => {
+      try {
+        setLoading(true); // Ensure loading state is true when fetching data
+        const products = await client.fetch(bestAirMaxQuery);
+        setProducts(products);
+      } catch (error) {
+        console.error(
+          "Error Fetching Best Air Max Mobile Product Data",
+          error
+        );
+      } finally {
+        setLoading(false); 
+      }
+    };
+    getProductsData();
+  }, []); 
+
   return (
     <>
       <Carousel>
         <CarouselContent>
-          <CarouselItem>
-            <ImageCard
-              image={"/ImageShoes1.svg"}
-              tittle={"Nike Air Max Pulse"}
-              price={"13 995"}
-              category={"Women's Shoes"}
-            />
-          </CarouselItem>
-          <CarouselItem>
-          <ImageCard
-                image={"/ImageShoes2.svg"}
-                tittle={"Nike Air Max Pulse"}
-                price={'13 995'}
-                category={"Women's Shoes"}
-              />
-          </CarouselItem>
-          <CarouselItem>
-          <ImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max 97 SE"}
-                price={'13 995'}
-                category={"Women's Shoes"}
-              />
-          </CarouselItem>
-          <CarouselItem>
-          <ImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max Pulse"}
-                price={'16 995'}
-                category={"Women's Shoes"}
-              />
-          </CarouselItem>
-          <CarouselItem>
-          <ImageCard
-                image={"/ImageShoes3.svg"}
-                tittle={"Nike Air Max 97 SE"}
-                price={'13 995'}
-                category={"Women's Shoes"}
-              />
-          </CarouselItem>
+          {loading ? (
+            <BestAirMaxMobileSkeleton />
+          ) : (
+            Products.map((product: Iproducts, index: number) => (
+              <Link key={index} href={`products/${product._id}`}>
+                <CarouselItem>
+                  <ImageCard
+                    image={urlFor(product.image).url()}
+                    tittle={product.productName}
+                    price={product.price}
+                    category={product.category}
+                  />
+                </CarouselItem>
+              </Link>
+            ))
+          )}
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
