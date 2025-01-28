@@ -22,7 +22,6 @@ export interface IAllProductCardProps {
 export interface IEssentialsCardProps {
   image: string;
   buttonName: string;
-  
 }
 
 export interface IGearUpCardProps {
@@ -37,5 +36,9 @@ export interface IImageCardProps {
   tittle: string;
   category: string;
   price: number;
+}
+
+export interface IParams {
+  params: { slug: string };
 }
 
