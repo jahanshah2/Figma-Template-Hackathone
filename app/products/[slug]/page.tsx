@@ -1,56 +1,62 @@
+"use client";
+
+import { Iproducts } from "@/lib/types";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { addToCart } from "../../actions/addToCart";
 import swal from "sweetalert2";
 
-// Define the type for the `params` object
-interface Params {
-  slug: string;
+interface ProductProps {
+  params: Promise<{ slug: string }>;
 }
 
-// Static Params Generation for Dynamic Routes
-export async function generateStaticParams() {
-  const products = await client.fetch(`*[_type == 'product']{_id}`);
-  return products.map((product: { _id: string }) => ({
-    slug: product._id,
-  }));
-}
+export default function Product({ params }: ProductProps) {
+  const [product, setProduct] = useState<Iproducts | null>(null);
 
-export default async function Product({ params }: { params: Params }) {
-  const fetchData = async (slug: string) => {
-    try {
-      const res = await client.fetch(
-        `*[_type == 'product' && _id == "${slug}"]`
-      );
-      if (res && res.length > 0) {
-        return res[0]; // Assuming `res` is an array
-      } else {
-        return null;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const slug = (await params).slug;
+        if (!slug) {
+          console.error("Slug not found in params");
+          return;
+        }
+
+        const res = await client.fetch(
+          `*[_type == 'product' && _id == "${slug}"]`
+        );
+        if (res && res.length > 0) {
+          setProduct(res[0]); // Assuming res is an array
+        } else {
+          console.error("Product not found");
+        }
+      } catch (error) {
+        console.error("Error fetching product data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching product data:", error);
-      return null;
-    }
-  };
+    };
 
-  // Fetch product data using params
-  const product = await fetchData(params.slug);
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+    fetchData();
+  }, [params]);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    swal.fire({
-      icon: "success",
-      title: `${product.productName} added to cart`,
-      showConfirmButton: false,
-      timer: 2000,
-    });
-    addToCart(product);
+
+    if (product) {
+      swal.fire({
+        icon: "success",
+        title: `${product.productName} added to cart`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      addToCart(product);
+    }
   };
+
+  if (!product) {
+    return <div>Loading product details...</div>;
+  }
 
   return (
     <div className="md:max-w-[1280px] mx-auto">
@@ -83,12 +89,11 @@ export default async function Product({ params }: { params: Params }) {
             >
               <Image
                 src={"/Add-to-Cart-Icon.svg"}
-                alt="image"
+                alt="Add to cart"
                 height={20}
                 width={20}
-                className=""
               />
-              <span className="relative z-10"> Add To Cart</span>
+              <span className="relative z-10">Add To Cart</span>
             </button>
           </div>
         </div>
