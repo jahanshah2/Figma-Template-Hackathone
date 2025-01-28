@@ -26,14 +26,13 @@ export default function ItemSliderMobile() {
         setLoading(true); // Ensure loading state is true when fetching data
         const products = await client.fetch(bestAirMaxQuery);
         setProducts(products);
+        setLoading(false);
       } catch (error) {
         console.error(
           "Error Fetching Best Air Max Mobile Product Data",
           error
         );
-      } finally {
-        setLoading(false); 
-      }
+      } 
     };
     getProductsData();
   }, []); 

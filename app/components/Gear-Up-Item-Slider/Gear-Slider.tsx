@@ -25,10 +25,9 @@ export default function GearSlider() {
         setLoadiing(true);
         const products1 = await client.fetch(gearUp_1_Query);
         setProductsSlider1(products1);
+        setLoadiing(false);
       } catch (error) {
         console.error("Error To Fetching Gear Up Slider 1", error);
-      } finally {
-        setLoadiing(false);
       }
     };
     getProductsDataSlider1();

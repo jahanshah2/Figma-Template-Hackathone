@@ -35,21 +35,20 @@ import { allProductsQuery } from "@/lib/query";
 import { Iproducts } from "@/lib/types";
 import { useEffect, useState } from "react";
 import AllProductsSkeleton from "../components/Loading-Skeletons/All-Products/All-Products-Skeleton";
- 
+
 export default function AllProducts() {
   const [loading, setLoading] = useState(true);
   const [productData, setProducts] = useState<Iproducts[]>([]);
-  
+
   useEffect(() => {
     const getProductData = async () => {
       try {
         setLoading(true);
         const response = await client.fetch(allProductsQuery);
         setProducts(response);
+        setLoading(false);
       } catch (error) {
         console.error("Error To Fetching All Products : ", error);
-      } finally {
-        setLoading(false);
       }
     };
     getProductData();

@@ -25,11 +25,10 @@ export default function GearSliderMobile() {
         setLoading(true);
         const response = await client.fetch(gearUp_1_Query);
         setProducts(response);
+        setLoading(false);
       } catch (error) {
         console.error("Error To Fetching Gear Up Mobile : ", error);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
     getProductsData();
   }, []);
