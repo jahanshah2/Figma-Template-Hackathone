@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import { IGearUpCardProps } from "@/lib/types";
 
-export default function GearImageCard(prop: any) {
+export default function GearImageCard(prop: IGearUpCardProps) {
   return (
     <>
       <div>

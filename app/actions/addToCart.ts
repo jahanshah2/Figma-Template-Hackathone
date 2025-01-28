@@ -17,7 +17,7 @@ export const addToCart = (product : Iproducts) =>{
 }
 
 export const removeCart = (productId : string) =>{
-    let cart:Iproducts[] = JSON.parse(localStorage.getItem('cart') || '[]')
+    const cart:Iproducts[] = JSON.parse(localStorage.getItem('cart') || '[]')
 
     const updatedCart = cart.filter((item: Iproducts) => item._id !== productId);
 

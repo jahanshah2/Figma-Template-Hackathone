@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import BlogCard from "../components/All-Cards/Blog-Card";
 import BlogMiniCard from "../components/All-Cards/Blog-Mini-Card";

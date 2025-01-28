@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import { IImageCardProps } from "@/lib/types";
 
-export default function ImageCard(prop: any) {
+export default function ImageCard(prop: IImageCardProps) {
   return (
     <>
       <div>

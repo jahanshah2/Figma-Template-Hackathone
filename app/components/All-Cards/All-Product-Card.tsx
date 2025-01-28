@@ -1,7 +1,8 @@
+import { IAllProductCardProps } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 
-export default function AllProductCard(prop: any) {
+export default function AllProductCard(prop: IAllProductCardProps) {
   return (
     <>
       <div>

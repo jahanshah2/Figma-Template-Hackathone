@@ -1,7 +1,8 @@
+import { IEssentialsCardProps } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 
-export default function EssentialsCard(prop: any) {
+export default function EssentialsCard(prop: IEssentialsCardProps) {
   return (
     <div className="relative md:relative md:h-[500px] md:w-[380px]">
       <Image
