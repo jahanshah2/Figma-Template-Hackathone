@@ -21,10 +21,9 @@ export default function ItemSlider() {
       try {
         const products = await client.fetch(bestAirMaxQuery);
         setProducts(products);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products Best Air Max :", error);
-      } finally {
-        setLoading(false);
       }
     };
     getProductsData();
