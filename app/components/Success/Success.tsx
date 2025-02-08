@@ -14,7 +14,11 @@ import {
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-const Success = ({ id }: { id: string }) => {
+type SuccessProps = {
+  id: string;
+};
+
+const Success: React.FC<SuccessProps> = ({ id }) => {
   const { cart } = useSelector((state: StoreState) => state?.nike);
   const dispatch = useDispatch();
   const { data: session } = useSession();
@@ -23,9 +27,8 @@ const Success = ({ id }: { id: string }) => {
 
   useEffect(() => {
     let price = 0;
-    cart.map((item) => {
+    cart.forEach((item) => {
       price += item?.price * item?.quantity;
-      return price;
     });
     setTotalAmt(price);
   }, [cart]);
@@ -40,19 +43,18 @@ const Success = ({ id }: { id: string }) => {
         },
         body: JSON.stringify({
           cart,
-          email: session?.user?.email as string,
-          id: id,
+          email: session?.user?.email || "",
+          id,
           totalAmt,
         }),
       });
       const data = await response.json();
       if (data.success) {
-        setLoading(false);
         dispatch(resetCart());
         toast.success(data.message);
       }
     } catch (error) {
-      console.log("Error", error);
+      console.error("Error", error);
     } finally {
       setLoading(false);
     }
@@ -75,43 +77,33 @@ const Success = ({ id }: { id: string }) => {
               <div className="w-32 h-32 bg-green-100 rounded-full flex items-center justify-center">
                 <HiCheckCircle className="h-24 w-24 text-green-600" />
               </div>
-              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-                Success!
-              </h2>
+              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Success!</h2>
               <p className="text-sm mt-4 text-gray-600">
                 Your payment has been completed successfully.
               </p>
               <div className="space-y-5">
-                <p className=" text-base mt-4 text-gray-700">
-                  Thank you for your submission. We&apos;ve received your
-                  information and will process is shortly.You should receive a
-                  confirmation email within the next few minutes.
+                <p className="text-base mt-4 text-gray-700">
+                  Thank you for your submission. We've received your information
+                  and will process it shortly. You should receive a confirmation
+                  email within the next few minutes.
                 </p>
-                <div className=" flex flex-wrap justify-center gap-4">
-                  <Link href={"/"}>
-                    <button className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white transition duration-300 ease-in-out transform font-samibold rounded-lg shadow-md hover:-translate-y-1">
-                      <HiHome className="mr-2 h-5 w-5" />
-                      Home
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Link href="/">
+                    <button className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white transition duration-300 ease-in-out transform font-semibold rounded-lg shadow-md hover:-translate-y-1">
+                      <HiHome className="mr-2 h-5 w-5" /> Home
                     </button>
                   </Link>
-                  <Link href={"/orders"}>
-                    <button className="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white transition duration-300 ease-in-out transform font-samibold rounded-lg shadow-md hover:-translate-y-1">
-                      <HiInformationCircle className="mr-2 h-5 w-5" />
-                      Orders
+                  <Link href="/orders">
+                    <button className="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white transition duration-300 ease-in-out transform font-semibold rounded-lg shadow-md hover:-translate-y-1">
+                      <HiInformationCircle className="mr-2 h-5 w-5" /> Orders
                     </button>
                   </Link>
-                  <Link href={"/contact"}>
-                    <button className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white transition duration-300 ease-in-out transform font-samibold rounded-lg shadow-md hover:-translate-y-1">
-                      <HiMail className="mr-2 h-5 w-5" />
-                      Contact
+                  <Link href="/contact">
+                    <button className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white transition duration-300 ease-in-out transform font-semibold rounded-lg shadow-md hover:-translate-y-1">
+                      <HiMail className="mr-2 h-5 w-5" /> Contact
                     </button>
                   </Link>
                 </div>
-              </div>
-              <div className="mt-10 flex justify-center space-x-4">
-                <div className="w-3 h-3 bg-green-200 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-300 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
               </div>
             </div>
           </div>
