@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-
 import {
   Sheet,
   SheetContent,
@@ -11,59 +9,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
+
+import SearchInput from "../Search-Input/Search-Input";
+import CartIcon from "../Cart-Icon/Cart-Icon";
+import ProfileSection from "../Profile/Profile";
 
 export default function Navbar() {
-  const pathName = usePathname();
-
   const navLinkListBottom = [
-    {
-      title: "New & Featured",
-      link: "/all-products",
-    },
-    {
-      title: "Man",
-      link: "/",
-    },
-    {
-      title: "Woman",
-      link: "/",
-    },
-    {
-      title: "Kids",
-      link: "/",
-    },
-    {
-      title: "Sale",
-      link: "/",
-    },
-    {
-      title: "SNKRS",
-      link: "/",
-    },
-    {
-      title: "Blog",
-      link: "/blog",
-    },
+    { title: "New & Featured", link: "/all-products" },
+    { title: "Man", link: "/" },
+    { title: "Woman", link: "/" },
+    { title: "Kids", link: "/" },
+    { title: "Sale", link: "/" },
+    { title: "SNKRS", link: "/" },
+    { title: "Orders", link: "/orders" },
   ];
 
   const navLinkListTop = [
-    {
-      title: "Find a Store",
-      link: "/",
-    },
-    {
-      title: "Help",
-      link: "/contact-us",
-    },
-    {
-      title: "Join Us",
-      link: "/join-us",
-    },
-    {
-      title: "Sign In",
-      link: "/sign-up",
-    },
+    { title: "Find a Store", link: "/" },
+    { title: "Help", link: "/contact-us" },
+    { title: "Join Us", link: "/join-us" },
+    { title: "Sign In", link: "/sign-in" },
   ];
 
   return (
@@ -91,7 +57,7 @@ export default function Navbar() {
                 >
                   <li>
                     <p
-                      className={`md:transition md:duration-300 md:ease-in-out md:hover:scale-110 ${pathName === item?.link && "scale-110"}`}
+                      className={`md:transition md:duration-300 md:ease-in-out md:hover:scale-110 `}
                     >
                       {item.title}
                     </p>
@@ -101,7 +67,7 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-        <div className="mx-3 p-5 flex justify-between items-center  md:mx-8 md:p-5 md:flex md:justify-between md:items-center">
+        <div className="mx-3 p-5 flex justify-between items-center md:mx-8 md:p-5 md:flex md:justify-between md:items-center">
           <div>
             <Link href={"/"}>
               <Image
@@ -128,35 +94,18 @@ export default function Navbar() {
           </div>
           <div className="flex items-center md:flex md:items-center gap-6">
             <div className="hidden sm:block md:relative">
-              <input
-                type="search"
-                placeholder="Search"
-                className=" md:focus-visible:outline-none md:bg-gray-100 md:p-[10px] md:pl-[50px] md:rounded-[25px]"
-              />
-              <Image
-                src={"/VectorSearch.svg"}
-                alt="logo"
-                height={10000}
-                width={1000}
-                className="md:absolute md:top-3 md:h-[21px] md:w-[59px]"
-              />
+              <SearchInput />
             </div>
             <Image
               src={"/VectorHeart.svg"}
               alt="logo"
               height={10000}
               width={1000}
-              className="h-[25.5px] w-[25.5px]  md:h-[25.5px] md:w-[25.5px]"
+              className="h-[25.5px] w-[25.5px] md:h-[25.5px] md:w-[25.5px]"
             />
-            <Link href={"/cart"}>
-              <Image
-                src={"/VectorCart.svg"}
-                alt="logo"
-                height={10000}
-                width={1000}
-                className="h-[25px] w-[25px]  md:h-[24px] md:w-[24px]"
-              />
-            </Link>
+            <CartIcon />
+            <ProfileSection />
+            {/* ProfileSection yahan render hoga */}
             <div className="sm:hidden flex items-center justify-center">
               <Sheet>
                 <SheetTrigger>
@@ -188,7 +137,7 @@ export default function Navbar() {
                           className="absolute top-[11px] left-[15px] h-[20px] w-[20px]"
                         />
                       </div>
-                      <div className="mt-[20px] pb-[20px] border-b-[2px] ">
+                      <div className="mt-[20px] pb-[20px] border-b-[2px]">
                         <ul className="text-start text-[17px] text-black flex flex-col space-y-7">
                           {navLinkListBottom.map((item, index) => (
                             <Link key={index} href={item.link}>

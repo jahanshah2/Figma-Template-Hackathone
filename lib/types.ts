@@ -7,7 +7,7 @@ export interface Iproducts {
   description: string;
   category: string;
   status: string;
-  inventory: number;
+  quantity: number;
 }
 
 export interface IAllProductCardProps {
@@ -41,4 +41,18 @@ export interface IImageCardProps {
 export interface IParams {
   params: { slug: string };
 }
+
+interface UserInfo {
+  id: string;
+  name: string;
+  email: string;
+}
+export interface StoreState {
+  nike: { 
+    cart:Iproducts[];
+    wishList:Iproducts[];
+    userInfo:UserInfo | null;
+   };
+}
+
 

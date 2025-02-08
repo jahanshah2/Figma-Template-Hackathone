@@ -19,8 +19,8 @@ export const productSchema = {
       type: 'number',
     },
     {
-      name: 'inventory',
-      title: 'Inventory',
+      name: 'quantity',
+      title: 'Quantity',
       type: 'number',
     },
     {

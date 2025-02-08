@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import GearSlider from "../Gear-Up-Item-Slider/Gear-Slider";
 import GearSliderMobile from "../Gear-Up-Item-Slider/Gear-Slider-Mobile";
 
@@ -12,13 +12,19 @@ export default function GearUp() {
           </h2>
         </div>
         <div className="md:hidden">
-          <GearSliderMobile />
-          <div className="mt-[80px]">
+          <Suspense>
             <GearSliderMobile />
+          </Suspense>
+          <div className="mt-[80px]">
+            <Suspense>
+              <GearSliderMobile />
+            </Suspense>
           </div>
         </div>
         <div className="hidden md:block">
-          <GearSlider />
+          <Suspense>
+            <GearSlider />
+          </Suspense>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ export default function Hero() {
       </div>
       <div className="md:px-14">
         <Image
+          priority
           src={"ImageHero.svg"}
           alt="hero image"
           height={1000}

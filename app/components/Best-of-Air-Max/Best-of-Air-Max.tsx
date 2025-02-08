@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ItemSlider from "../Item-Slider/Item-Slider";
 import ItemSliderMobile from "../Item-Slider/Item-Slider-Mobile";
 
@@ -10,10 +10,14 @@ export default function BestAirMax() {
           Best of Air Max
         </h2>
         <div className="block sm:hidden">
-          <ItemSliderMobile />
+          <Suspense>
+            <ItemSliderMobile />
+          </Suspense>
         </div>
         <div className="hidden sm:block">
-          <ItemSlider />
+          <Suspense>
+            <ItemSlider />
+          </Suspense>
         </div>
       </div>
     </div>

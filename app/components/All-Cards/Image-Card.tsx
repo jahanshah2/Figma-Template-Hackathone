@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { IImageCardProps } from "@/lib/types";
+import PriceFormatter from "../Price-Formatter/Price-Formatter";
 
 export default function ImageCard(prop: IImageCardProps) {
   return (
@@ -17,7 +18,7 @@ export default function ImageCard(prop: IImageCardProps) {
         </div>
         <div className="flex justify-between w-[300px] text-[15px] font-[500] mt-[20px] md:flex md:justify-between md:w-[300px] md:text-[15px] md:font-[500] md:mt-[20px]">
           <p >{prop.tittle}</p>
-          <p >&#8377; {prop.price}</p>
+          <PriceFormatter amount={prop.price} />
         </div>
         <p className="text-[#757575] md:text-[#757575]">{prop.category}</p>
       </div>
