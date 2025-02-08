@@ -6,7 +6,6 @@ import { collection, deleteDoc, doc, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "@/firebase";
 import { Iproducts } from "@/lib/types";
-import Loader from "../Loader/Loader";
 import {
   Button,
   Badge,

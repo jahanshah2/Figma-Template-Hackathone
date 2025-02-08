@@ -10,8 +10,13 @@ import { resetCart } from "@/app/redux/nikeSlice";
 import Button from "../Button/Button";
 import PriceFormatter from "../Price-Formatter/Price-Formatter";
 import { useEffect, useState } from "react";
+import { Session } from "next-auth";
 
-export default function Cart({ session }: any) {
+interface CartProps {
+  session: Session | null; // Define correct type
+}
+
+export default function Cart({ session }: CartProps) {
   const { cart } = useSelector((state: StoreState) => state?.nike);
   const [totalAmt, setTotalAmt] = useState(0);
   const dispatch = useDispatch();

@@ -55,13 +55,13 @@ export const nikeSlice = createSlice({
     resetCart: (state) => {
       state.cart = [];
     },
-    addToWishList: (state, action) => {
-      const existingProduct = state.wishList.find(
-        (item) => item._id === action.payload._id
-      );
+    // addToWishList: (state, action) => {
+    //   const existingProduct = state.wishList.find(
+    //     (item) => item._id === action.payload._id
+    //   );
 
-      state.cart.push(action.payload);
-    },
+    //   state.cart.push(action.payload);
+    // },
     resetWishList: (state) => {
       state.wishList = [];
     },
@@ -80,7 +80,7 @@ export const {
   decreaseQuantity,
   removeFromCart,
   resetCart,
-  addToWishList,
+  // addToWishList,
   resetWishList,
   addUser,
   removeUser,

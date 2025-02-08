@@ -9,7 +9,6 @@ import {
 
 import { auth, signOut } from "@/auth";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 
 const ProfileSection = async () => {
   const session = await auth();

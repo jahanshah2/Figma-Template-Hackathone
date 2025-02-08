@@ -2,7 +2,7 @@
 import { resetCart } from "@/app/redux/nikeSlice";
 import { StoreState } from "@/lib/types";
 import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import {
@@ -30,7 +30,7 @@ const Success = ({ id }: { id: string }) => {
     setTotalAmt(price);
   }, [cart]);
 
-  const handleSaveOrder = async () => {
+  const handleSaveOrder = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch("/api/saveorder", {
@@ -49,20 +49,20 @@ const Success = ({ id }: { id: string }) => {
       if (data.success) {
         setLoading(false);
         dispatch(resetCart());
-        toast.success(data.message)
+        toast.success(data.message);
       }
     } catch (error) {
       console.log("Error", error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [cart, session?.user?.email, id, totalAmt, dispatch]);
 
   useEffect(() => {
     if (session?.user && cart.length) {
       handleSaveOrder();
     }
-  }, [session?.user, cart.length]);
+  }, [session?.user, cart.length, handleSaveOrder]);
 
   return (
     <div>

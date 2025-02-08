@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 function SearchInput() {
-  const [search, setSearch] = useState<string>("");
+  // const [search, setSearch] = useState<string>("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearch(e.target.value);
+  // };
 
   return (
     <div className="hidden sm:block md:relative">
